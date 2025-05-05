@@ -17,10 +17,10 @@ AWS Site-to-Site VPN 구성 실습
 ## 🛠️ 사용 서비스 / 도구
 - AWS VPC, VPN Gateway, Customer Gateway, Route Table
 - Untangle (Firewall/VPN 솔루션)
-- Wireshark, ping/traceroute
 
 ## ⚙️ 구성 절차
 - VPC1 / VPC2 생성
+- EC2 생성
 - Virtual Private Gateway / Customer Gateway 구성
 - Site-to-Site VPN 설정
 - Static Route 설정
