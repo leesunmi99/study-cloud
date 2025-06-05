@@ -26,21 +26,21 @@
 
 ---
 ## ✅ 3. Subnet 생성 
-### Subnet Seoul (public)
+### Subnet (Seoul Region)
 - Name: vpc-01-public-subnet-a
 - CIDR: 10.1.1.0/24
 
-### Subnet Tokyo 
+### Subnet (Tokyo Region) 
 - Name: vpc-04-public-subnet-a
 - CIDR: 10.4.1.0/24
 
 ---
 ## ✅ Security Group 생성 및 수정
-### SG a1 (Seoul)
+### SG (Seoul Region)
 - Name: vpc-01-private-ec2-sg
 
 
-### SG (Tokyo)
+### SG (Tokyo Region)
 - Name: vpc-04-public-ec2-a1
 
 
@@ -49,7 +49,7 @@
 ---
 
 ## ✅ 4. EC2 인스턴스 생성
-### 
+### EC2 (Seoul Region)
 - Name: vpc-01-public-ec2-a1
 - AMI: Amazon Linux 2
 - Instance type: t2.micro
@@ -79,7 +79,7 @@ find /var/www -type d -exec chmod 2775 {} \;
 find /var/www -type f -exec chmod 0664 {} \;
 ```
 
-### 
+### EC2 (Tokyo Region)
 - Name: vpc-04-public-ec2-a1
 - Security Group:
   - Create security Group
@@ -87,14 +87,12 @@ find /var/www -type f -exec chmod 0664 {} \;
     - Description: security group for vpc-04-public-ec2
 
 
-###
-- Name: 
 
 
 ---
 ## ✅ 5. Elastic IP 생성 및 할당 
 - Name: eip-vpc-01-public-ec2-a
-Actions > Associate Elastic IP address > Instance 
+Actions > Associate Elastic IP address > Instance(vpc-01-public-ec2-a1)
 
 --- 
 ## ✅ 6. Route Table 생성 
@@ -115,8 +113,8 @@ Routes > Edit routes > Destination 0.0.0.0/0: Target vpc-01-igw
 ---
 ## ✅ 3. Virtual Private Gateway 설정
 
-- 이름: `vpn-gw-a`
-- 연결 대상 VPC: `vpc-site-a`
+- Name: vpc-01-vgw
+Attach to VPC > 
 
 ---
 
@@ -125,7 +123,7 @@ Routes > Edit routes > Destination 0.0.0.0/0: Target vpc-01-igw
 
 ## ✅ 4. Customer Gateway 설정
 
-- 이름: `untangle-cgw`
+- Name: vpc-04-cgw
 - IP 주소: `x.x.x.x` (Untangle 외부 Public IP)
 - Routing: Static
 - BGP: 사용 안함
@@ -134,27 +132,8 @@ Routes > Edit routes > Destination 0.0.0.0/0: Target vpc-01-igw
 
 ## ✅ 5. Site-to-Site VPN Connection 설정
 
-- 이름: `vpn-a-to-b`
-- Virtual Private Gateway: `vpn-gw-a`
-- Customer Gateway: `untangle-cgw`
-- Static routes: `192.168.0.0/16`
-- 암호화 설정: 기본값 사용 (IKEv2)
-
-
-
-
----
-
-## ✅ 7. Untangle에서 IPSec VPN 구성
-
-- Peer IP: AWS에서 제공한 터널 IP
-- PSK: AWS에서 생성된 Pre-Shared Key 입력
-- 암호화 설정: AES256 / SHA1 / DH Group 2 등 AWS와 일치시킴
-
----
-
-## ✅ 8. 연결 테스트
-
-- 터널 상태 확인: `UP` 상태 확인
-- EC2 A → EC2 B ping 전송 → **성공**
-- Untangle 로그에서 데이터 전송 확인됨
+- Name: vpc-0104-vpn
+- Virtual Private Gateway: vpc-01-vgw
+- Customer Gateway: vpc-04-cgw
+- Static IP prefixes: 10.4.0.0/16
+Download configuration > Openswan (Libereswan의 베이스) 
