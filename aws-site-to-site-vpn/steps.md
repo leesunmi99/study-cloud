@@ -3,14 +3,14 @@
 ## ✅ 1. VPC 생성
 
 ### VPC A (Seoul Region)
-- 이름: vpc-01
+- Name: vpc-01
 - CIDR: 10.1.0.0/16
 - 서브넷: 10.0.1.0/24 (public)
 - 인터넷 게이트웨이 연결: vpc-01-igw
 - Enable DNS hostnames 
 
 ### VPC B (Tokyo Region)
-- 이름: vpc-04
+- Name: vpc-04
 - CIDR: 10.4.0.0/16
 - 서브넷: 192.168.1.0/24 (public)
 - 인터넷 게이트웨이 연결: vpc-04-igw
@@ -19,10 +19,10 @@
 ---
 ## ✅ 2. Internet Gateway 생성 및 연결 
 ### IGW (Seoul Region)
-- 이름: vpc-01-igw
+- Name: vpc-01-igw
 
 ### IGW (Tokyo Region)
-- 이름: vpc-04-igw
+- Name: vpc-04-igw
 
 ---
 ## ✅ 3. Subnet 생성 
@@ -32,13 +32,22 @@
 
 
 
+
+
+
+
+
+
 ## ✅ 2. EC2 인스턴스 생성
-- 이름: vpc-01-public-ec2-a1
+- Name: vpc-01-public-ec2-a1
 - AMI: Amazon Linux 2
-- 인스턴스 타입: t2.micro
+- Instance type: t2.micro
+- Key pair: ec2-public-seoul
+  - Key pair type: RSA
+  - Private key file format: .pem
 - 보안 그룹:
   - SSH (22), ICMP 허용
-- Key pair: `vpn-test-key`
+
 
 ---
 
