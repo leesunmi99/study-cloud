@@ -26,14 +26,30 @@
 
 ---
 ## ✅ 3. Subnet 생성 
-### Subnet A (public)
-- Subnet name: vpc-01-public-subnet-a
+### Subnet Seoul (public)
+- Name: vpc-01-public-subnet-a
 - CIDR: 10.1.1.0/24
+
+### Subnet Tokyo 
+- Name: vpc-04-public-subnet-a
+- CIDR: 10.4.1.0/24
+
+---
+## ✅ Security Group 생성 및 수정
+### SG a1 (Seoul)
+- Name: vpc-01-private-ec2-sg
+
+
+### SG (Tokyo)
+- Name: vpc-04-public-ec2-a1
+
+
 
 
 ---
 
 ## ✅ 4. EC2 인스턴스 생성
+### 
 - Name: vpc-01-public-ec2-a1
 - AMI: Amazon Linux 2
 - Instance type: t2.micro
@@ -44,7 +60,6 @@
   - Create security Group
     - Name: vpc-01-public-ec2-sg
     - Description: security group for vpc-01-public-ec2
-  - SSH (22), ICMP 허용
 - Advanced details
   - Metadata version: V1 and V2 (token optional)
   - Allow tags in metadata: Enable
@@ -64,6 +79,18 @@ find /var/www -type d -exec chmod 2775 {} \;
 find /var/www -type f -exec chmod 0664 {} \;
 ```
 
+### 
+- Name: vpc-04-public-ec2-a1
+- Security Group:
+  - Create security Group
+    - Name: vpc-04-public-ec2-sg
+    - Description: security group for vpc-04-public-ec2
+
+
+###
+- Name: 
+
+
 ---
 ## ✅ 5. Elastic IP 생성 및 할당 
 - Name: eip-vpc-01-public-ec2-a
@@ -71,13 +98,14 @@ Actions > Associate Elastic IP address > Instance
 
 --- 
 ## ✅ 6. Route Table 생성 
+### RT Seoul
 - Name: vpc-01-public-subnet-rt
 - VPC: vpc-01
 Subnet associations > Edit subnet associations > vpc-01-subnet-a
 Routes > Edit routes > Destination 0.0.0.0/0: Target vpc-01-igw
 
-
-
+### RT Tokyo
+- Name: vpc-04-public-subnet-rt
 
 
 
