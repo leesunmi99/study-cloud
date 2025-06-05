@@ -31,14 +31,9 @@
 - CIDR: 10.1.1.0/24
 
 
+---
 
-
-
-
-
-
-
-## ✅ 2. EC2 인스턴스 생성
+## ✅ 4. EC2 인스턴스 생성
 - Name: vpc-01-public-ec2-a1
 - AMI: Amazon Linux 2
 - Instance type: t2.micro
@@ -53,17 +48,52 @@
 - Advanced details
   - Metadata version: V1 and V2 (token optional)
   - Allow tags in metadata: Enable
-//v1으로 되어 있으면 웹페이지로 인스턴스의 메타 데이터를 살펴볼 때 추가 작업이 필요함
+
+- User data
+```bash
+#!/bin/bash
+dnf update -y
+dnf install -y httpd wget php-fpm php-mysqli php-json php php-devel
+dnf install -y mariadb105-server
+systemctl start httpd
+systemctl enable httpd
+usermod -a -G apache ec2-user
+chown -R ec2-user:apache /var/www
+chmod 2775 /var/www
+find /var/www -type d -exec chmod 2775 {} \;
+find /var/www -type f -exec chmod 0664 {} \;
+```
+
+---
+## ✅ 5. Elastic IP 생성 및 할당 
+- Name: eip-vpc-01-public-ec2-a
+Actions > Associate Elastic IP address > Instance 
+
+--- 
+## ✅ 6. Route Table 생성 
+- Name: vpc-01-public-subnet-rt
+- VPC: vpc-01
+Subnet associations > Edit subnet associations > vpc-01-subnet-a
+Routes > Edit routes > Destination 0.0.0.0/0: Target vpc-01-igw
+
+
+
+
+
+
+
 
 
 ---
-
 ## ✅ 3. Virtual Private Gateway 설정
 
 - 이름: `vpn-gw-a`
 - 연결 대상 VPC: `vpc-site-a`
 
 ---
+
+
+
 
 ## ✅ 4. Customer Gateway 설정
 
@@ -82,15 +112,8 @@
 - Static routes: `192.168.0.0/16`
 - 암호화 설정: 기본값 사용 (IKEv2)
 
----
 
-## ✅ 6. 라우팅 테이블 수정
 
-- `vpc-site-a`의 서브넷 라우팅 테이블에 아래 경로 추가
-  - 대상: `192.168.0.0/16`
-  - 대상지: VPN 연결
-
-- `vpc-site-b`도 동일하게 처리
 
 ---
 
