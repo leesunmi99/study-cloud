@@ -45,8 +45,15 @@
 - Key pair: ec2-public-seoul
   - Key pair type: RSA
   - Private key file format: .pem
-- 보안 그룹:
+- Security Group:
+  - Create security Group
+    - Name: vpc-01-public-ec2-sg
+    - Description: security group for vpc-01-public-ec2
   - SSH (22), ICMP 허용
+- Advanced details
+  - Metadata version: V1 and V2 (token optional)
+  - Allow tags in metadata: Enable
+//v1으로 되어 있으면 웹페이지로 인스턴스의 메타 데이터를 살펴볼 때 추가 작업이 필요함
 
 
 ---
