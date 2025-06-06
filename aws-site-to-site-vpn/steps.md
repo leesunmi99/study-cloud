@@ -164,6 +164,22 @@ include /etc/ipsec.d/*.conf
 ---
 vi /etc/ipsec.d/aws.conf
 
+```
+![image](https://github.com/user-attachments/assets/df4d909d-49f2-4d68-a5aa-c65968fc73c8)
+
+```bash
+vi /etc/ipsec.d/aws.secrets
+```
+![image](https://github.com/user-attachments/assets/c84600e1-9fa6-4803-9f9a-565480a06d59)
+```bash
+service ipserc start
+chkconfig ipsec on
+service ipsec status
+```
+
+## vpc-01의 Route table 수정
+- Edit routes
+  - Destination 10.4.0.0/16: Target vpc-01-vgw
 
 # 실습 결과
 ![image](https://github.com/user-attachments/assets/ec3e39a4-532b-47c6-aa32-e5771c5e000e)
