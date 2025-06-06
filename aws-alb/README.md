@@ -74,3 +74,4 @@ Gateway Load Balancer
 
 > 📘 참고: 
 - 쉽게 설명하는 AWS 기초 강좌 13:Elastic Load Balancer(ELB) (https://www.youtube.com/watch?v=mqtUMduyKjk)
+- 인프런 강의-스스로 구축하는 AWS 클라우드(노마드 콘텐츠 랩)
