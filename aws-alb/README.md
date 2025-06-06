@@ -1,15 +1,13 @@
 # AWS Application Load Balancer 정리
 
 
-## 개요 
-### 로드밸런싱이란? 
-ELB
+## ELB란 
 - 다수의 서비스에 트래픽을 분산 시켜주는 서비스
 - Health check: 직접 트래픽을 발생시켜 Instance가 살아있는지 check
 - 여러 가용 영역에서 애플리케이션 부하를 처리할 수 있음 
 - 지속적으로 IP 주소가 바뀌므로 IP 고정 불가능 : **항상 도메인 기반으로 사용** (NLB는 예외적으로 EIP도 가능)
 실무) 화이트리스트 설정을 위해 엔드포인트 IP 주소 알려줘라 -> 우리는 Address 기반이다! 
-- 종류
+### ELB의 종류
 Application Load Balancer
 : 트래픽을 모니터링라여 라우팅 가능
 주소를 인식함(image.sample.com -> 이미지 서버로)
