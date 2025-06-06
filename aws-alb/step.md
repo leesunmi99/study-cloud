@@ -60,3 +60,5 @@
 ![image](https://github.com/user-attachments/assets/85aa4845-d892-4ddd-a859-d441516db09b)
 ![image](https://github.com/user-attachments/assets/ed1b05b4-7c75-413d-916e-8eb49866147e)
 
+- 트래픽이 분산되어 새로고침 할 때마다 화면이 바뀐다.
+  
