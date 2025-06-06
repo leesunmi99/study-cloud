@@ -48,3 +48,13 @@ vpc-01-public-ec2-a1, vpc-01-public-ec2-c1 추가 > Include as pending below
 - Security group: vpc-01-alb-public-sg
 - Listeners and routing
   - HTTP:80:vpc-01-alb-public-tg
+ 
+
+
+
+# 실습 결과 확인 
+![image](https://github.com/user-attachments/assets/6852d619-c4d3-497c-8543-42dc545df252)
+
+![image](https://github.com/user-attachments/assets/85aa4845-d892-4ddd-a859-d441516db09b)
+![image](https://github.com/user-attachments/assets/ed1b05b4-7c75-413d-916e-8eb49866147e)
+
