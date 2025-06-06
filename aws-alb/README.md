@@ -11,7 +11,7 @@
 ## ELB의 종류
 ### Application Load Balancer
 - 트래픽을 모니터링라여 라우팅 가능
-- 주소를 인식함(image.sample.com -> 이미지 서버로)
+- 주소, 포트를 인식함(image.sample.com -> 이미지 서버로)
 - HTTP, HTTPS 트래픽을 사용하는 웹 어플리케이션을 위한 로드밸런서 
 
 ### Network Load Balancer
@@ -24,11 +24,16 @@
 - 먼저 트래픽을 체크함 
 - 가상 어플라이언스 배포, 확장 관리를 위한 서비스 
 
-## ALB의 라우팅 대상 
-- Instance
-- IP(Private IP Address)
-- Lambda
-- ALB 
+## ALB의 라우팅 대상(Target Group)
+- 대상의 종류
+  - Instance
+  - IP(Private IP Address)
+  - Lambda
+  - ALB
+  - ECS 등
+- 프로토콜
+  - HTTP, HTTPS, gRPC
+  - (HTTPS는 앱에서 구현하기 불편함)
 
 
 ## 1. 아키텍처
