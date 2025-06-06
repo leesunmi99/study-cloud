@@ -46,3 +46,5 @@ vpc-01-public-ec2-a1, vpc-01-public-ec2-c1 추가 > Include as pending below
     - ap-northeast-2a: vpc-01-public-subnet-a
     - ap-northeast-2c: vpc-01-public-subnet-c
 - Security group: vpc-01-alb-public-sg
+- Listeners and routing
+  - HTTP:80:vpc-01-alb-public-tg
