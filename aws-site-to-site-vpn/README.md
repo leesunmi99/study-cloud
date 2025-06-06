@@ -1,14 +1,13 @@
 # 프로젝트 제목
-AWS Site-to-Site VPN 구성 실습
+가상의 하이브리드 환경 구축을 위한 AWS Site-to-Site VPN 구성 실습
 
 ## 📌 개요
 이 프로젝트는 AWS의 Virtual Private Gateway와 Customer Gateway를 활용해 
 두 개의 VPC 간 Site-to-Site VPN을 구성한 실습입니다.  
-실제 VPN 연결 테스트와 Untangle 연동도 포함됩니다.
+
 
 ## 🎯 목표
 - AWS에서 VPN 연결 개념과 구성 경험
-- Untangle과 연동한 실습을 통한 보안 이해
 - 라우팅 및 터널 상태 점검 방법 학습
 
 ## 🗺️ 아키텍처
