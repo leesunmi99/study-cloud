@@ -123,8 +123,8 @@ Attach to VPC >
 
 ## ✅ 4. Customer Gateway 설정
 
-- Name: vpc-04-cgw
-- IP 주소: `x.x.x.x` (Untangle 외부 Public IP)
+- Name: vpc-04-cgw (Region: Seoul)
+- IP 주소: 57.180.39.205 
 - Routing: Static
 - BGP: 사용 안함
 
@@ -137,3 +137,11 @@ Attach to VPC >
 - Customer Gateway: vpc-04-cgw
 - Static IP prefixes: 10.4.0.0/16
 Download configuration > Openswan (Libereswan의 베이스) 
+
+
+
+# 실습 결과
+![image](https://github.com/user-attachments/assets/ec3e39a4-532b-47c6-aa32-e5771c5e000e)
+
+
+![image](https://github.com/user-attachments/assets/6a259dc2-6c4d-48ee-9bbb-f3940d4824ca)
