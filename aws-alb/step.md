@@ -101,7 +101,7 @@
 - php 서버를 다시 실행시켜줌
 - 방지
 - Auto Scaling Group에서 MyASG의 ELB도 선택해주었다. 
-
+=> 고가용성 확보
 ---
 # 📝 배운 점 
 - web 서버가 죽었을 때 ELB 입장에선 unhealthy로 판단하지만, auto scailing group 입장에선 판단하지 못한다.
