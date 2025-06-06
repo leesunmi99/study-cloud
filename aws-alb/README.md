@@ -9,7 +9,25 @@ Health check: 직접 트래픽을 발생시켜 Instance가 살아있는지 check
 여러 가용 영역에서 애플리케이션 부하를 처리할 수 있음 
 지속적으로 IP 주소가 바뀌므로 IP 고정 불가능 : **항상 도메인 기반으로 사용** (NLB는 예외적으로 EIP도 가능)
 실무) 화이트리스트 설정을 위해 엔드포인트 IP 주소 알려줘라 -> 우리는 Address 기반이다! 
+- 종류
+Application Load Balancer
+: 트래픽을 모니터링라여 라우팅 가능
+주소를 인식함(image.sample.com -> 이미지 서버로)
 
+Network Load Balancer
+TCP 기반 빠른 트래픽 분산 
+
+Classic Load Balancer 
+현재는 잘 사용하지 않음 
+
+Gateway Load Balancer
+먼저 트래픽을 체크함 
+가상 어플라이언스 배포, 확장 관리를 위한 서비스 
+## ALB의 라우팅 대상 
+- Instance
+- IP(Private IP Address)
+- Lambda
+- ALB 
 
 
 ## 1. 아키텍처
