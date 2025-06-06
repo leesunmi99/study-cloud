@@ -9,14 +9,14 @@
 실무) 화이트리스트 설정을 위해 엔드포인트 IP 주소 알려줘라 -> 우리는 Address 기반이다! 
 ### ELB의 종류
 Application Load Balancer
-: 트래픽을 모니터링라여 라우팅 가능
-주소를 인식함(image.sample.com -> 이미지 서버로)
+- 트래픽을 모니터링라여 라우팅 가능
+- 주소를 인식함(image.sample.com -> 이미지 서버로)
 
 Network Load Balancer
-TCP 기반 빠른 트래픽 분산 
+- TCP 기반 빠른 트래픽 분산 
 
 Classic Load Balancer 
-현재는 잘 사용하지 않음 
+- 현재는 잘 사용하지 않음 
 
 Gateway Load Balancer
 먼저 트래픽을 체크함 
