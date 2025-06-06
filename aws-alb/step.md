@@ -1,5 +1,6 @@
 # ALB 실습 상세 단계 
-인프런-스스로 구축하는 AWS 클라우드(노마드 콘텐츠 랩) 강의를 보고 실습하며 정리한 내용입니다
+> 📚 본 문서는 인프런 강의 **‘스스로 구축하는 AWS 클라우드’**의 실습 내용을 기반으로  
+> 직접 따라하며 수행한 결과를 정리한 것입니다. 
 
 ## VPC 생성 
 - Name: vpc-01
@@ -14,7 +15,7 @@
 
 ## Route tables 
 - Name: vpc-01-public-subnet-rt
-Edit subnet associations > vpc-01-public-subnet-a, vpc-01-public-subnet-c 추가 > Save assocoations
+- Edit subnet associations > vpc-01-public-subnet-a, vpc-01-public-subnet-c 추가 > Save assocoations
 
 
 ## Instance 
@@ -34,7 +35,7 @@ Edit subnet associations > vpc-01-public-subnet-a, vpc-01-public-subnet-c 추가
 - Protocol-Port: HTTP
 - Health check path: /AWS.ALB/healthcheck
 - Step 2 ) Register targets
-vpc-01-public-ec2-a1, vpc-01-public-ec2-c1 추가 > Include as pending below
+- vpc-01-public-ec2-a1, vpc-01-public-ec2-c1 추가 > Include as pending below
 
 
 
