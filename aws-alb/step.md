@@ -73,7 +73,7 @@
    - Stickness duration: 3
    - Unit of time: seconds
 
-
+---
 # 실습 결과 확인 
 ## ALB 
 ![image](https://github.com/user-attachments/assets/6852d619-c4d3-497c-8543-42dc545df252)
