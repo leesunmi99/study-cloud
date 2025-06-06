@@ -98,5 +98,7 @@
 - Instance의 User date가 제대로 입력되지 않아서 php 서버가 실행되지 않은 상태였음 
 - 그래서 새로 고침을 할 때마다 php 서버가 실행되지 않은 인스턴스에 접근하면 이 오류가 뜸 
 - 해결
-- php 서버를 다시 실행시켜줌 
+- php 서버를 다시 실행시켜줌
+- 방지
+- Auto Scaling Group에서 MyASG의 ELB도 선택해주었다. 
 
