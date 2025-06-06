@@ -68,7 +68,10 @@
     - Path-c1: Priority: 200
  ## +) 고정 세션 라우팅
  - Target group > Attributes > Edit > Target selection configuration
- - Stickiness > [check] Turn on stickiness 
+ - Stickiness
+   - [check] Turn on stickiness
+   - Stickness duration: 3
+   - Unit of time: seconds
 
 
 # 실습 결과 확인 
@@ -84,3 +87,5 @@
 ![image](https://github.com/user-attachments/assets/a007733b-27fc-425e-af06-568bef2bc437)
 ![image](https://github.com/user-attachments/assets/47b907a9-ce99-4ea6-b925-1801f763b327)
 
+## ALB 고정 세션 라우팅
+- 새로 고침 버튼을 눌러도 3초간 세션이 고정되어 화면이 바뀌지 않는다. 
