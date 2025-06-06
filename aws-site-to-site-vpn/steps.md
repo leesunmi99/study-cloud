@@ -36,13 +36,15 @@
 
 ---
 ## ✅ Security Group 생성 및 수정
-### SG (Seoul Region)
+### Security Group (Seoul Region)
 - Name: vpc-01-private-ec2-sg
+- Inbound rule
+  - Type Custom ICMP: Source 10.4.0.0/16: Description allow icmp for vpc-04
 
-
-### SG (Tokyo Region)
+### Security Group (Tokyo Region)
 - Name: vpc-04-public-ec2-a1
-
+- Inbound rule
+  - Type Custom ICMP: Source 10.1.0.0/16: Description allow icmp for vpc-01
 
 
 
@@ -81,11 +83,18 @@ find /var/www -type f -exec chmod 0664 {} \;
 
 ### EC2 (Tokyo Region)
 - Name: vpc-04-public-ec2-a1
+- AMI: Amazon Linux 2
+- Instance type: t2.micro
+- Key pair: ec2-public-tokyo
+  - Key pair type: RSA
+  - Private key file format: .pem
 - Security Group:
   - Create security Group
     - Name: vpc-04-public-ec2-sg
     - Description: security group for vpc-04-public-ec2
-
+- Advanced details
+  - Metadata version: V1 and V2 (token optional)
+  - Allow tags in metadata: Enable
 
 
 
@@ -114,7 +123,7 @@ Routes > Edit routes > Destination 0.0.0.0/0: Target vpc-01-igw
 ## ✅ 3. Virtual Private Gateway 설정
 
 - Name: vpc-01-vgw
-Attach to VPC > 
+Attach to VPC
 
 ---
 
@@ -132,12 +141,28 @@ Attach to VPC >
 
 ## ✅ 5. Site-to-Site VPN Connection 설정
 
-- Name: vpc-0104-vpn
+- Name: vpc-0104-vpn (Region: Seoul)
 - Virtual Private Gateway: vpc-01-vgw
 - Customer Gateway: vpc-04-cgw
 - Static IP prefixes: 10.4.0.0/16
 Download configuration > Openswan (Libereswan의 베이스) 
 
+
+## Tokyo에서 Libreswan 설정하기 
+```bash
+dnf install libreswan -y
+vi /etc/sysctl.conf
+
+---
+net.ipv4.ip_forward = 1
+net.ipv4.conf.default.rp_filter = 0
+net.ipv4.conf.default.accept_source_route = 0
+---
+vi /etc/ipsec.conf
+---
+include /etc/ipsec.d/*.conf
+---
+vi /etc/ipsec.d/aws.conf
 
 
 # 실습 결과
