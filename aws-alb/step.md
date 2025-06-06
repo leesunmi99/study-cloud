@@ -102,3 +102,7 @@
 - 방지
 - Auto Scaling Group에서 MyASG의 ELB도 선택해주었다. 
 
+---
+# 📝 배운 점 
+- web 서버가 죽었을 때 ELB 입장에선 unhealthy로 판단하지만, auto scailing group 입장에선 판단하지 못한다.
+- 서비스가 다운되는 다양한 경우를 미리 예측하고 행동하는 것이 중요하다는 것을 깨달았다. 
