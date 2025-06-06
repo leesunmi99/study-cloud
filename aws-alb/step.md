@@ -50,15 +50,37 @@
 - Security group: vpc-01-alb-public-sg
 - Listeners and routing
   - HTTP:80:vpc-01-alb-public-tg
- 
 
+
+ ## +) 경로 기반 라우팅
+- Target group
+   - vpc-01-alb-public-a1-tg
+   - vpc-01
+   - Health check path: /a1/index.php
+   - Register target: vpc-01-public-ec2-a1
+- Load balancer > Manage rules > Edit rules > Add rule
+  - Name: Path-a1
+  - Add condition-Path: /a1*
+  - Define rule actions
+    - Target group: vpc-01-alb-public-al-tg
+  - Set rule priority
+    - Path-a1: Priotiry: 100
+    - Path-c1: Priority: 200
+ ## +) 고정 세션 라우팅
+ - Target group > Attributes > Edit > Target selection configuration
+ - Stickiness > [check] Turn on stickiness 
 
 
 # 실습 결과 확인 
+## ALB 
 ![image](https://github.com/user-attachments/assets/6852d619-c4d3-497c-8543-42dc545df252)
 
 ![image](https://github.com/user-attachments/assets/85aa4845-d892-4ddd-a859-d441516db09b)
 ![image](https://github.com/user-attachments/assets/ed1b05b4-7c75-413d-916e-8eb49866147e)
 
 - 트래픽이 분산되어 새로고침 할 때마다 화면이 바뀐다.
-  
+
+## ALB 경로 기반 라우팅 
+![image](https://github.com/user-attachments/assets/a007733b-27fc-425e-af06-568bef2bc437)
+![image](https://github.com/user-attachments/assets/47b907a9-ce99-4ea6-b925-1801f763b327)
+
